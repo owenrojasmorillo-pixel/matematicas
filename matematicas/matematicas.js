@@ -2,8 +2,8 @@ function generar() {
     let b = Math.floor(Math.random() * 21) - 10;
     let c = Math.floor(Math.random() * 21) - 10;
 
-    document.getElementById("b").textContent = b;
-    document.getElementById("c").textContent = c;
+    document.getElementById("b").textContent = "[ " + b + " ]";
+    document.getElementById("c").textContent = "[ " + c + " ]";
 
     let formula = "f(x) = " + b + "x";
     if (c > 0) {
@@ -12,7 +12,6 @@ function generar() {
     if (c < 0) {
         formula += " - " + (c * -1);
     }
-    document.getElementById("funcion").textContent = formula;
 
     let comportamiento = "La función es constante porque b = 0.";
     if (b > 0) {
@@ -21,13 +20,14 @@ function generar() {
         comportamiento = "La función es decreciente porque b es negativo.";
     }
 
-    if (c == 0) {
+    if (c === 0) {
         document.getElementById("lineal").innerHTML =
             "Es una función lineal.<br>" +
             "Pasa por el origen (0, 0).<br>" +
             "Su fórmula es " + formula + ".<br>" +
             comportamiento;
-        document.getElementById("afin").innerHTML = "";
+        document.getElementById("afin").textContent =
+            "Muestra la lista de propiedades de la Función Afín si cumple la condición (c ≠ 0).";
     } else {
         document.getElementById("afin").innerHTML =
             "Es una función afín.<br>" +
@@ -36,6 +36,9 @@ function generar() {
             "La pendiente es b = " + b + ".<br>" +
             comportamiento + "<br>" +
             "Es una traslación vertical de f(x) = " + b + "x.";
-        document.getElementById("lineal").innerHTML = "";
+        document.getElementById("lineal").textContent =
+            "Muestra la lista de propiedades de la Función Lineal si cumple la condición (c = 0).";
     }
 }
+
+document.addEventListener("DOMContentLoaded", generar);
