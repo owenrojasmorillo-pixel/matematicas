@@ -1,47 +1,100 @@
 
 <!DOCTYPE html>
+<!-- Indica al navegador que este documento utiliza HTML5. -->
 <html lang="es">
+<!-- lang="es" define el idioma español para lectores y buscadores. -->
 <head>
+    <!-- head contiene metadatos y recursos que no aparecen como contenido principal. -->
     <meta charset="UTF-8">
+    <!-- charset=UTF-8 permite mostrar letras como á, ñ y símbolos matemáticos. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esquema vertical de la interfaz</title>
+    <!-- viewport adapta el diseño al ancho de teléfonos y tablets. -->
+    <title>Clasificador de funciones</title>
+    <!-- title cambia el nombre visible en la pestaña del navegador. -->
     <link rel="stylesheet" href="matematicas.css">
+    <!-- link conecta la hoja de estilos que cambia colores y posiciones. -->
 </head>
+
 <body>
-    <div class="contenedor">
-        <h1>ESQUEMA VERTICAL DE LA INTERFAZ</h1>
+    <!-- body contiene toda la información visible de la página. -->
+    <main class="contenedor">
+        <!-- main agrupa el contenido principal y contenedor limita y centra el diseño. -->
+        <h1>CLASIFICADOR DE FUNCIONES DE PRIMER GRADO</h1>
+        <!-- h1 muestra el título principal en el encabezado superior. -->
 
-        <div class="campo">
-            <span>b = </span>
-            <span class="valor" id="b">[ Random (-10 a 10) ]</span>
-        </div>
+        <section class="parametros" aria-label="Parámetros de la función">
+            <!-- section agrupa los datos aleatorios b y c de la función. -->
+            <div class="campo">
+                <!-- div.field presenta horizontalmente la pendiente b. -->
+                <span>b = </span>
+                <span class="valor" id="b">[ Random (-3 a 3) ]</span>
+            </div>
 
-        <div class="campo">
-            <span>c = </span>
-            <span class="valor" id="c">[ Random (-10 a 10) ]</span>
-        </div>
+            <div class="campo">
+                <!-- div.field presenta horizontalmente el término independiente c. -->
+                <span>c = </span>
+                <span class="valor" id="c">[ Random (-3 a 3) ]</span>
+            </div>
+        </section>
 
-        <button type="button" onclick="generar()">Generar / Cambiar</button>
+        <button type="button" id="boton-generar" onclick="generar()">
+            Generar otra función
+        </button>
+        <!-- button llama a generar(); su función cambia b, c, resultados y gráfica. -->
 
-        <div class="resultado">
-            <h2>LINEAL</h2>
-            <p id="lineal">Muestra la lista de propiedades de la Función Lineal si cumple la condición (c = 0).</p>
-        </div>
+        <section class="clasificaciones" aria-label="Tipos de función">
+            <!-- section contiene las cuatro categorías solicitadas. -->
+            <article class="resultado" id="tarjeta-lineal">
+                <!-- article.lineal contiene la explicación de la función lineal. -->
+                <h2>LINEAL</h2>
+                <!-- h2 muestra el nombre de la categoría. -->
+                <p id="lineal">Muestra sus propiedades cuando c = 0 y b ≠ 0.</p>
+            </article>
 
-        <div class="resultado">
-            <h2>AFÍN</h2>
-            <p id="afin">Muestra la lista de propiedades de la Función Afín si cumple la condición (c ≠ 0).</p>
+            <article class="resultado" id="tarjeta-afin">
+                <!-- article.afín contiene la explicación de la función afín. -->
+                <h2>AFÍN</h2>
+                <p id="afin">Muestra sus propiedades cuando b ≠ 0 y c ≠ 0.</p>
+            </article>
+
+            <article class="resultado" id="tarjeta-constante">
+                <!-- article.constante contiene la explicación de la función constante. -->
+                <h2>CONSTANTE</h2>
+                <p id="constante">Muestra sus propiedades cuando b = 0.</p>
+            </article>
+
+            <article class="resultado" id="tarjeta-sin-funcion">
+                <!-- article sin-función explica qué ocurre si faltan datos válidos. -->
+                <h2>SIN FUNCIÓN</h2>
+                <p id="sin-funcion">Solo aparece si b o c no son números válidos.</p>
+            </article>
+        </section>
+
+        <div class="geogebra-container">
+            <!-- contenedor con borde que delimita el espacio del applet. -->
+            <div id="geogebra-applet"></div>
+            <!-- el script de GeoGebra dibuja la gráfica dentro de este elemento. -->
         </div>
 
         <p class="enlace">
-            ENLACE: <a href="https://www.geogebra.org/classic" target="_blank" rel="noopener noreferrer">GeoGebra Clásico</a> (geogebra.org/classic)
+            <!-- p en clase enlace muestra la dirección externa. -->
+            ENLACE:
+            <a href="https://www.geogebra.org/classic" target="_blank" rel="noopener noreferrer">
+                GeoGebra Clásico
+            </a>
+            <!-- target="_blank" abre GeoGebra en otra pestaña sin reemplazar esta página. -->
         </p>
 
         <p class="accion">
-            ACCIÓN: Subir / Guardar archivo <strong>.ggb</strong> a GitHub
+            <!-- p accion muestra la acción final recomendada para guardar el trabajo. -->
+            ACCIÓN: Subir / Guardar el archivo <strong>.ggb</strong> en GitHub
+            <!-- strong resalta visualmente la extensión del archivo GeoGebra. -->
         </p>
-    </div>
+    </main>
 
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <!-- script externo carga las herramientas necesarias para crear la gráfica. -->
     <script src="matematicas.js"></script>
+    <!-- script propio contiene los datos, clasificaciones y movimientos de la página. -->
 </body>
 </html>

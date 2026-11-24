@@ -1,100 +1,179 @@
 
+/* body define el fondo azul oscuro y el tipo de letra de toda la página. */
 body {
     margin: 0;
-    padding: 20px 0;
-    background: #ebebeb;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1f1f1f;
+    padding: 24px 12px;
+    background: linear-gradient(135deg, #071a33, #123d67);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #edf7ff;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
+/* contenedor centra el contenido y le da fondo con apariencia de tarjeta. */
 .contenedor {
-    width: 700px;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 20px;
+    border: 2px solid #48c6ef;
+    border-radius: 18px;
+    background: #102a43;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.38);
 }
 
+/* h1 cambia el tamaño y el color del título principal. */
 h1 {
     margin: 0 0 18px;
-    font-size: 16px;
-    letter-spacing: 0.5px;
+    font-size: 21px;
+    letter-spacing: 1.2px;
     text-align: center;
-    color: #1d1d1d;
-    font-weight: 700;
+    color: #ffd166;
 }
 
+/* parametros separa visualmente los cuadros de los valores aleatorios. */
+.parametros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* campo coloca b o c en una fila y usa bordes de color turquesa. */
 .campo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 560px;
-    margin: 0 auto 10px;
-    padding: 8px 10px;
-    font-size: 18px;
-    border: 1px solid #6f6f6f;
-    background: #f3f3f3;
+    padding: 10px;
+    font-size: 19px;
+    border: 2px solid #48c6ef;
+    border-radius: 10px;
+    background: #1b4965;
+    color: #ffffff;
     box-sizing: border-box;
 }
 
+/* valor hace visible el número calculado y lo centra dentro del campo. */
 .valor {
     display: inline-block;
-    min-width: 180px;
+    min-width: 110px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
+    color: #ffd166;
 }
 
+/* button modifica la apariencia del botón que ejecuta JavaScript. */
 button {
     display: block;
-    margin: 10px auto 18px;
-    padding: 8px 18px;
-    border: 1px solid #2f2f2f;
-    background: #dfeaf5;
-    color: #1d1d1d;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
-}
-
-button:hover {
-    background: #d4e5f6;
-}
-
-.resultado {
-    border: 1px dashed #6d7b84;
-    background: rgba(255, 255, 255, 0.25);
-    margin: 10px auto 0;
-    padding: 10px 14px;
-    width: 610px;
-}
-
-.resultado h2 {
-    margin: 0 0 6px;
-    font-size: 18px;
+    margin: 16px auto;
+    padding: 11px 22px;
+    border: 2px solid #ffd166;
+    border-radius: 999px;
+    background: #ef476f;
+    color: #ffffff;
+    font-size: 17px;
     font-weight: 700;
-    color: #1d1d1d;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
 }
 
+/* hover mueve y cambia el botón al pasar el cursor sobre él. */
+button:hover {
+    background: #d90452;
+    transform: translateY(-2px);
+}
+
+/* clasificaciones organiza las tarjetas en una cuadrícula de dos columnas. */
+.clasificaciones {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+/* resultado crea las cajas de explicación de cada tipo de función. */
+.resultado {
+    min-height: 110px;
+    border: 2px solid #48c6ef;
+    border-radius: 12px;
+    background: #163f5c;
+    margin: 0;
+    padding: 12px 14px;
+    box-sizing: border-box;
+}
+
+/* activa destaca la tarjeta que corresponde a la función generada. */
+.resultado.activa {
+    border-color: #ffd166;
+    background: #24557a;
+    box-shadow: 0 0 18px rgba(255, 209, 102, 0.28);
+}
+
+/* resultado h2 cambia el color y tamaño del título de cada tarjeta. */
+.resultado h2 {
+    margin: 0 0 7px;
+    font-size: 17px;
+    color: #6fffe9;
+}
+
+/* resultado p mantiene legible la descripción y el salto de línea. */
 .resultado p {
     margin: 0;
     font-size: 13px;
-    line-height: 1.5;
-    color: #1d1d1d;
+    line-height: 1.55;
+    color: #edf7ff;
 }
 
+/* geogebra-container coloca el marco blanco alrededor de la gráfica. */
+.geogebra-container {
+    width: 100%;
+    max-width: 610px;
+    height: 420px;
+    margin: 14px auto 0;
+    border: 3px solid #48c6ef;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* geogebra-applet ocupa todo el contenedor y presenta la gráfica. */
+#geogebra-applet {
+    width: 100%;
+    height: 420px;
+}
+
+/* enlace y accion aplican un texto claro a los datos inferiores. */
 .enlace,
 .accion {
     margin: 14px 0 0;
-    font-size: 12px;
-    color: #1d1d1d;
+    font-size: 13px;
+    color: #b9dcff;
     text-align: left;
 }
 
+/* a cambia el enlace externo a amarillo y conserva subrayado. */
 .enlace a {
-    color: #1d1d1d;
+    color: #ffd166;
     text-decoration: underline;
 }
 
+/* strong resalta la extensión ggb con color amarillo. */
 .accion strong {
+    color: #ffd166;
     font-weight: 700;
+}
+
+/* media query reorganiza todo en una columna cuando la pantalla es estrecha. */
+@media (max-width: 650px) {
+    .parametros,
+    .clasificaciones {
+        grid-template-columns: 1fr;
+    }
+
+    .geogebra-container,
+    #geogebra-applet {
+        height: 360px;
+    }
+
+    h1 {
+        font-size: 17px;
+    }
 }
